@@ -45,18 +45,44 @@ const HomeInput = memo(function HomeInput({ onValidation, ...props }: HomeInputP
   }, [router, setStudent, onValidation]);
 
   return (
-    <input
-      {...props}
-      value={value}
-      onChange={handleInputChange}
+    <div
       style={{
-        border: "none",
-        background: "none",
-        outline: "none",
-        font: "inherit",
-        color: "inherit",
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        margin: "0 auto", // Center the container
+        backgroundImage: 'url(/images/input.png)',
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        transition: "all 0.3s ease"
       }}
-    />
+      className="transition-smooth"
+    >
+      <input
+        {...props}
+        value={value}
+        onChange={handleInputChange}
+        style={{
+          position: "absolute",
+          border: "none",
+          background: "transparent",
+          outline: "none",
+          font: "inherit",
+          width: "80%", // Reduced width to fit better in the input area
+          height: "20%", // Responsive height relative to container
+          textAlign: "center",
+          fontSize: "clamp(1.5rem, 2.5vw, 1.5rem)", // Responsive font size
+          zIndex: 1,
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)", // Perfect centering
+        }}
+      />
+    </div>
   );
 });
 

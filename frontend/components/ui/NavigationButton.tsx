@@ -16,7 +16,7 @@ const NavigationButton = memo(function NavigationButton({
   children, 
   className = "" 
 }: NavigationButtonProps) {
-  const baseClasses = `mt-6 px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-bounce hover:scale-105 active:scale-95 animate-slide-up animate-delay-500 shadow-lg hover:shadow-xl ${className}`;
+  const baseClasses = `transition-bounce hover:scale-105 active:scale-95 animate-slide-up animate-delay-500 ${className}`;
   
   const content = (
     <span className={`${isExiting ? 'animate-fade-out' : 'animate-fade-in'}`}>

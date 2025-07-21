@@ -46,25 +46,34 @@ export default function ClientGroupPage() {
 
   return (
     <div
-      className={`overflow-y-auto flex flex-col w-full mb-[100px] ${
+      className={`overflow-y-auto min-h-screen flex flex-col w-full transition-all duration-700 ease-out ${
         isExiting ? "animate-page-exit" : "animate-page-enter"
       }`}
     >
       {/* Image container at top with severe zoom animation */}
-
-      <HormoneImage imagePath={imagePath} hormone={hormone} />
+      <div className="relative flex-shrink-0 animate-severe-zoom-in">
+        <HormoneImage imagePath={imagePath} hormone={hormone} />
+      </div>
 
       {/* Content section below with improved animations */}
-      <div className="flex-1 flex flex-col items-center text-white text-center">
-        <StudentWelcome
-          firstName={firstName}
-          nickname={nickname}
-          hormone={hormone}
-        />
+      <div className="flex-1 flex flex-col items-center text-white text-center px-6 pb-8 space-y-6">
+        <div className="animate-slide-up animate-delay-300">
+          <StudentWelcome
+            firstName={firstName}
+            nickname={nickname}
+            hormone={hormone}
+          />
+        </div>
 
-        <NavigationButton onClick={handleBackToHome} isExiting={isExiting}>
-          หน้าหลัก
-        </NavigationButton>
+        <div className="animate-slide-up animate-delay-500 w-full max-w-md">
+          <NavigationButton 
+            onClick={handleBackToHome} 
+            isExiting={isExiting}
+            className="w-full py-4 px-8 text-lg font-bold transform transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            {"← หน้าแรก"}
+          </NavigationButton>
+        </div>
       </div>
     </div>
   );

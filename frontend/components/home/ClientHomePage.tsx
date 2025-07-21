@@ -1,15 +1,24 @@
 "use client";
 
-import { useState, useCallback, Suspense, lazy } from "react";
+import { useState, useCallback, Suspense, lazy, useEffect } from "react";
+import Image from "next/image";
 
 // Lazy load components for better performance
-const HomeInput = lazy(() => import("../input/HomeInput"));
-const ValidationMessage = lazy(() => import("./ValidationMessage"));
+import HomeInput from "../input/HomeInput";
 
 export default function ClientHomePage() {
   const [showText, setShowText] = useState(false);
   const [validationMessage, setValidationMessage] = useState("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
+  const [showInput, setShowInput] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowInput(true);
+    }, 1750);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleValidation = useCallback((valid: boolean, studentData?: any) => {
     setIsValid(valid);
@@ -30,37 +39,45 @@ export default function ClientHomePage() {
 
   return (
     <>
-      {/* Input container with enhanced animation */}
-      <div
-        className="absolute left-0 right-0 w-full text-lg text-white z-10 animate-fade-in"
-        style={{
-          top: "48.5%",
-          transform: "translateY(calc(-0%))",
-        }}
-      >
-        <Suspense fallback={<div className="text-center">...</div>}>
+      {/* Input container with enhanced animation - only show after 3 seconds */}
+      {showInput && (
+        <div
+          className="absolute left-0 right-0 top-1/2 w-full z-10 animate-fade-in"
+          style={{
+            height: "100%",
+            transform: "translateY(-50%)"
+          }}
+        >
           <HomeInput
-            placeholder="รหัสนิสิต"
+            placeholder="68xxxxxxx"
             type="text"
             inputMode="numeric"
             maxLength={10}
-            className="w-full text-center transition-smooth"
+            className="transition-smooth text-white"
             onValidation={handleValidation}
           />
-        </Suspense>
-      </div>
+        </div>
+      )}
 
       {/* Validation message with improved animations */}
-      {showText && (
-        <Suspense fallback={null}>
-          <ValidationMessage 
-            isValid={isValid ?? false}
-            message={validationMessage}
-            className="top-[55%]"
-          />
-        </Suspense>
+      {isValid ? (
+        <Image
+          src="/images/loading-text.png"
+          alt="main"
+          fill
+          style={{ objectFit: "contain" }}
+          className="transition-smooth animate-fade-in"
+          priority
+        />
+      ) : (
+        showText && (
+          <div className="absolute left-0 right-0 top-1/2 flex items-center justify-center z-20" style={{ transform: "translateY(100%)" }}>
+            <div className={`text-lg font-semibold ${isValid ? "text-green-600" : "text-red-600"} animate-fade-in`}>
+              {validationMessage}
+            </div>
+          </div>
+        )
       )}
-    
     </>
   );
 }

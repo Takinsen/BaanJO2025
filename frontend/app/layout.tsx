@@ -22,7 +22,7 @@ export default function RootLayout({
         <link rel="preload" href="/fonts/can_Rukdeaw01.ttf" as="font" type="font/ttf" crossOrigin="" />
         <link rel="preload" href="/images/main.jpg" as="image" />
       </head>
-      <body className="bg-black absolute inset-0 w-full h-full overflow-hidden">
+      <body className="min-h-screen flex relative w-full bg-black">
         <ClientLayout>
           {children}
         </ClientLayout>
