@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback, Suspense, lazy } from "react";
 
 // Lazy load components for better performance
-const HormoneImage = lazy(() => import("./HormoneImage"));
-const StudentWelcome = lazy(() => import("./StudentWelcome"));
-const NavigationButton = lazy(() => import("../ui/NavigationButton"));
-const LoadingSpinner = lazy(() => import("../ui/LoadingSpinner"));
+import HormoneImage from "./HormoneImage";
+import StudentWelcome from "./StudentWelcome";
+import NavigationButton from "../ui/NavigationButton";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 export default function ClientGroupPage() {
   const { student, clearStudent } = useStudent();
@@ -40,38 +40,31 @@ export default function ClientGroupPage() {
   }
 
   const { group, hormone, firstName, nickname } = student;
-  
+
   // Construct the image path
   const imagePath = `/images/${group}/${hormone}.jpg`;
 
   return (
-    <div className={`overflow-y-auto min-h-screen flex flex-col w-full ${isExiting ? 'animate-page-exit' : 'animate-page-enter'}`}>
+    <div
+      className={`overflow-y-auto flex flex-col w-full mb-[100px] ${
+        isExiting ? "animate-page-exit" : "animate-page-enter"
+      }`}
+    >
       {/* Image container at top with severe zoom animation */}
-      <Suspense fallback={<div className="flex justify-center bg-gray-800 animate-pulse"></div>}>
-        <HormoneImage 
-          imagePath={imagePath}
+
+      <HormoneImage imagePath={imagePath} hormone={hormone} />
+
+      {/* Content section below with improved animations */}
+      <div className="flex-1 flex flex-col items-center text-white text-center">
+        <StudentWelcome
+          firstName={firstName}
+          nickname={nickname}
           hormone={hormone}
         />
-      </Suspense>
-    
-      {/* Content section below with improved animations */}
-      <div className="flex-1 flex flex-col items-center text-white text-center pb-8">
-        <Suspense fallback={<div className="animate-pulse">Loading content...</div>}>
-          <StudentWelcome
-            firstName={firstName}
-            nickname={nickname}
-            hormone={hormone}
-          />
-        </Suspense>
-        
-        <Suspense fallback={<div className="mt-6 w-32 bg-blue-600 rounded-lg animate-pulse"></div>}>
-          <NavigationButton
-            onClick={handleBackToHome}
-            isExiting={isExiting}
-          >
-            หน้าหลัก
-          </NavigationButton>
-        </Suspense>
+
+        <NavigationButton onClick={handleBackToHome} isExiting={isExiting}>
+          หน้าหลัก
+        </NavigationButton>
       </div>
     </div>
   );
