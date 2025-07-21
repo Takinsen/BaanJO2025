@@ -45,9 +45,9 @@ export default function ClientGroupPage() {
   const imagePath = `/images/${group}/${hormone}.jpg`;
 
   return (
-    <div className={`min-h-screen flex flex-col w-full ${isExiting ? 'animate-page-exit' : 'animate-page-enter'}`}>
+    <div className={`overflow-y-auto min-h-screen flex flex-col w-full ${isExiting ? 'animate-page-exit' : 'animate-page-enter'}`}>
       {/* Image container at top with severe zoom animation */}
-      <Suspense fallback={<div className="flex justify-center h-96 bg-gray-800 animate-pulse"></div>}>
+      <Suspense fallback={<div className="flex justify-center bg-gray-800 animate-pulse"></div>}>
         <HormoneImage 
           imagePath={imagePath}
           hormone={hormone}
@@ -55,7 +55,7 @@ export default function ClientGroupPage() {
       </Suspense>
     
       {/* Content section below with improved animations */}
-      <div className="flex-1 flex flex-col items-center text-white text-center">
+      <div className="flex-1 flex flex-col items-center text-white text-center pb-8">
         <Suspense fallback={<div className="animate-pulse">Loading content...</div>}>
           <StudentWelcome
             firstName={firstName}
@@ -64,7 +64,7 @@ export default function ClientGroupPage() {
           />
         </Suspense>
         
-        <Suspense fallback={<div className="mt-6 w-32 h-12 bg-blue-600 rounded-lg animate-pulse"></div>}>
+        <Suspense fallback={<div className="mt-6 w-32 bg-blue-600 rounded-lg animate-pulse"></div>}>
           <NavigationButton
             onClick={handleBackToHome}
             isExiting={isExiting}
