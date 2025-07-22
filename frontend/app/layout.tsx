@@ -3,11 +3,36 @@ import "../styles/globals.css";
 import ClientLayout from "@/components/layout/ClientLayout";
 import { Metadata } from "next";
 
+const title = "BaanJo";
+const description = "หาคู่ที่จะไปว้าวุ่นของคุณ";
+
 export const metadata: Metadata = {
-  title: "BaanJot - Hormone Matching System",
-  description: "Student hormone matching application",
+  title,
+  description,
   viewport: "width=device-width, initial-scale=1",
-  robots: "noindex, nofollow", // Prevent indexing if this is internal
+
+  openGraph: {
+    title,
+    description,
+    url: "https://jo2025.vercel.app",
+    siteName: "BaanJo",
+    images: [
+      {
+        url: "/images/cover.jpg",
+        width: 1920,
+        height: 1200,
+        alt: "BaanJo Preview Image",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/cover.jpg"],
+  },
 };
 
 // This is a Server Component (SSR)

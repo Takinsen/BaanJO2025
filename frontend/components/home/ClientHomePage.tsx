@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, Suspense, lazy, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 
 // Lazy load components for better performance
