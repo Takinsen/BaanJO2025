@@ -4,7 +4,7 @@ import ClientLayout from "@/components/layout/ClientLayout";
 import { Metadata } from "next";
 
 const title = "BaanJo";
-const description = "หาคู่ที่จะไปว้าวุ่นของคุณ";
+const description = "หาคู่ที่จะไปว้าวุ่นกับคุณ";
 
 export const metadata: Metadata = {
   title,
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "BaanJo",
     images: [
       {
-        url: "https://jo2025.vercel.app/images/cover.JPG",
+        url: "https://jo2025.vercel.app/images/cover.png",
         width: 1920,
         height: 1200,
         alt: "BaanJo Preview Image",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["https://jo2025.vercel.app/images/cover.JPG"],
+    images: ["https://jo2025.vercel.app/images/cover.png"],
   },
 };
 
