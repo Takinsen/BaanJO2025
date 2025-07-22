@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     siteName: "BaanJo",
     images: [
       {
-        url: "/images/cover.jpg",
+        url: "https://jo2025.vercel.app/images/cover.JPG",
         width: 1920,
         height: 1200,
         alt: "BaanJo Preview Image",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/cover.jpg"],
+    images: ["https://jo2025.vercel.app/images/cover.JPG"],
   },
 };
 
