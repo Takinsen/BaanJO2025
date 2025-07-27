@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: process.env.NEXT_PUBLIC_API_URL,
+    url: "https://drive.google.com/uc?export=view&id=1yMOaaegvSLCXV2NdeRE1qTTppDcWrQp2",
     siteName: "BaanJo",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_API_URL}/images/cover.png`,
+        url: "https://drive.google.com/uc?export=view&id=1yMOaaegvSLCXV2NdeRE1qTTppDcWrQp2",
         width: 1920,
         height: 1200,
         alt: "BaanJo Preview Image",
