@@ -15,12 +15,22 @@ export default function Home() {
           priority
         />
       
-        <div
-          style={{ objectFit: "contain", animationDelay: "1.25s" }}
-          className="text-3xl font-medium text-center absolute top-6/14 left-0 right-0 transform -translate-y-1/2 transition-smooth animate-fade-in opacity-0"
-        >
-          กรอกเบอร์โทรศัพท์
-        </div>
+        <Image
+          src="/images/tel.png"
+          alt="main"
+          width={400}
+          height={300}
+          style={{ 
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            objectFit: "contain"
+          }}
+          className="pb-[120px] transition-smooth opacity-0 animate-fade-in animate-delay-1200"
+          priority
+        />        
+
 
       {/* Client-side interactive component */}
       <ClientHomePage />

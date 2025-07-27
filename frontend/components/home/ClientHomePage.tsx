@@ -15,7 +15,7 @@ export default function ClientHomePage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowInput(true);
-    }, 1750);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
