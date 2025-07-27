@@ -56,7 +56,7 @@ export default function ClientGroupPage() {
       </div>
 
       {/* Content section below with improved animations */}
-      <div className="flex-1 flex flex-col items-center text-white text-center px-6 pb-8 space-y-6">
+      <div className="flex-1 flex flex-col items-center text-white text-center px-2 space-y-4">
         <div className="animate-slide-up animate-delay-300">
           <StudentWelcome
             firstName={firstName}

@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
-    url: "https://jo2025.vercel.app",
+    url: "https://baanjo2025.vercel.app",
     siteName: "BaanJo",
     images: [
       {
-        url: "https://jo2025.vercel.app/images/cover.png",
+        url: "https://baanjo2025.vercel.app/images/cover.png",
         width: 1920,
         height: 1200,
         alt: "BaanJo Preview Image",
