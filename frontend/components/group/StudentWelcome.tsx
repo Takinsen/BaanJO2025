@@ -1,4 +1,5 @@
 import { memo } from 'react';
+import hormone from '../../constants/hormone.json';
 
 interface StudentWelcomeProps {
   firstName: string;

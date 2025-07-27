@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useStudent } from "../../contexts/StudentContext";
 
 // Import data dynamically to reduce initial bundle size
-const getStudentData = () => import("../../constants/data.json").then(m => m.default);
+const getStudentData = () => import("../../constants/students.json").then(m => m.default);
 
 type HomeInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   onValidation?: (isValid: boolean, studentData?: any) => void;

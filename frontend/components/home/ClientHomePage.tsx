@@ -27,7 +27,7 @@ export default function ClientHomePage() {
       setValidationMessage("ยินดีต้อนรับ!");
       setShowText(true);
     } else {
-      setValidationMessage("ไม่พบรหัสนิสิต");
+      setValidationMessage("ไม่พบข้อมูล");
       setShowText(true);
       // Hide error message after 3 seconds
       setTimeout(() => {
@@ -49,7 +49,7 @@ export default function ClientHomePage() {
           }}
         >
           <HomeInput
-            placeholder="68xxxxxxx"
+            placeholder="0xxxxxxxxx"
             type="text"
             inputMode="numeric"
             maxLength={10}

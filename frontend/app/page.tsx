@@ -15,15 +15,13 @@ export default function Home() {
           priority
         />
       
-        <Image
-          src="/images/fill.png"
-          alt="main"
-          fill
+        <div
           style={{ objectFit: "contain", animationDelay: "1.25s" }}
-          className="transition-smooth animate-fade-in opacity-0"
-          priority
-        />
-      
+          className="text-3xl font-medium text-center absolute top-6/14 left-0 right-0 transform -translate-y-1/2 transition-smooth animate-fade-in opacity-0"
+        >
+          กรอกเบอร์โทรศัพท์
+        </div>
+
       {/* Client-side interactive component */}
       <ClientHomePage />
     
