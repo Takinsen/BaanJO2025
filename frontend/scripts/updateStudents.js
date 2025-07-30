@@ -57,6 +57,13 @@ const updateStudents = async () => {
 
         const [groupCode, subGroup, number] = parts;
 
+        // Helper to ensure phone numbers start with '0'
+        const ensureLeadingZero = (num) => {
+          if (!num) return "";
+          num = String(num);
+          return num.startsWith("0") ? num : "0" + num;
+        };
+
         const studentData = {
           code: code,
           titleName: row[1],
@@ -66,11 +73,11 @@ const updateStudents = async () => {
           group: groupMap[groupCode],
           hormone: hormoneMap[subGroup],
           faculty: row[5],
-          tel: "0" + row[6],
+          tel: ensureLeadingZero(row[6]),
           foodAllergy: row[7],
           drugAllergy: row[8],
           illness: row[9],
-          emergencyContact: "0" + row[10],
+          emergencyContact: ensureLeadingZero(row[10]),
           emergencyStatus: row[11],
           isCollectBottle: row[12] === "รับ",
         };
